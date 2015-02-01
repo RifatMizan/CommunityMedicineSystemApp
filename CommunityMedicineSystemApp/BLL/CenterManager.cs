@@ -10,24 +10,11 @@ namespace CommunityMedicineSystemApp.BLL
     
     public class CenterManager
     {
-       
-
-        internal List<Center> GetTheCenter(string thanaId)
-        {
-                }
-
-        internal string CreateNewCenter(Center aCenter)
-        {
-            
-        }
-
-        private bool HasCenter(Center aCenter)
-        {
-          
-        }
+        CenterDBGateway aCenterDbGateway = new CenterDBGateway();
 
         internal Center FindCodePswrd(Center aCenterLogin)
         {
+            return aCenterDbGateway.FindCodePswrd(aCenterLogin);
         }
     }
 }

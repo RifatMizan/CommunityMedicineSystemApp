@@ -7,35 +7,28 @@ namespace CommunityMedicineSystemApp.UI
 {
     internal class MedicineManager
     {
-      
+
+        MedicineDBGateway aMedicineDbGateway = new MedicineDBGateway();
         internal string SaveMedicineToDb(Medicine aMedicine)
         {
-            
+            if (HasMedicine(aMedicine))
+            {
+                return "The Medicine already Added";
+            }
+            else
+            {
+                return aMedicineDbGateway.SaveMedicineToDb(aMedicine);
+            }
         }
 
         private bool HasMedicine(Medicine aMedicine)
         {
-            
+            return aMedicineDbGateway.HasMedicine(aMedicine);
         }
-
-        internal List<Medicine> GetAllMedicine()
-        {
-           
-        }
-
         internal Medicine Find(string medicineId)
         {
-           
+            return aMedicineDbGateway.Find(medicineId);
         }
-
-        internal int SendMedicineToCenter(MedicineStockInCenter aMedicineStockInCenter)
-        {
-           
-        }
-
-        internal List<MedicineView> GetMedicine(int center_id)
-        {
-           
-        }
+  
     }
 }

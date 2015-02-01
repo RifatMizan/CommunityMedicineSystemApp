@@ -14,11 +14,15 @@ namespace CommunityMedicineSystemApp.UI
         {
 
         }
-
+        MedicineManager aMedicineManager = new MedicineManager();
   
         protected void medicineSaveBuntton_Click(object sender, EventArgs e)
         {
-            
+            Medicine aMedicine = new Medicine();
+            aMedicine.MedicineName = medicineNameTextBox.Text;
+            aMedicine.MedicinePower = powerMgMlTextBox.Text + mgMLDropdownList.SelectedItem;
+            string saveAlert = aMedicineManager.SaveMedicineToDb(aMedicine);
+            saveAlertlabel.Text = saveAlert;
         }
     }
 }
